@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sandra &amp; Aarón — ¡Nos Casamos!</title>
+  <meta name="description" content="Invitación de boda de Sandra & Aarón. Acompáñanos a celebrar nuestro gran día el 12 de Diciembre de 2026.">
+  
+  <!-- Metadatos Open Graph / WhatsApp, Facebook, Telegram, iMessage -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Boda Sandra &amp; Aarón">
+  <meta property="og:title" content="Sandra &amp; Aarón — ¡Nos Casamos!">
+  <meta property="og:description" content="Acompáñanos a celebrar nuestra boda el Sábado 12 de Diciembre de 2026 a las 19:00 hs.">
+  <meta property="og:image" content="Assets/images/miniatura.jpg">
+  <meta property="og:image:secure_url" content="Assets/images/miniatura.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Invitación de Boda Sandra &amp; Aarón">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sandra &amp; Aarón — ¡Nos Casamos!">
+  <meta name="twitter:description" content="Sábado 12 de Diciembre de 2026 | 19:00 hs.">
+  <meta name="twitter:image" content="Assets/images/miniatura.jpg">
+
+  <!-- Favicon e ícono táctil -->
+  <link rel="icon" type="image/png" href="Assets/images/boton_musica.png">
+  <link rel="apple-touch-icon" href="Assets/images/boton_musica.png">
+
+  <!-- Estilos Base -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="envelope-active">
+
+  <!-- PORTADA / SOBRE DE BIENVENIDA -->
+  <aside class="envelope-screen" id="envelopeScreen" role="button" tabindex="0" aria-label="Toca la pantalla para abrir la invitación">
+    <div class="envelope-container">
+      <picture class="envelope-picture">
+        <source srcset="Assets/images/portada_sobre.webp" type="image/webp">
+        <img 
+          src="Assets/images/portada_sobre.jpg" 
+          alt="Sobre de Invitación Sandra & Aarón" 
+          class="envelope-image"
+          fetchpriority="high"
+        >
+      </picture>
+      
+      <!-- Destello de luz sobre el sello de lacre dorado -->
+      <div class="seal-glow-hint" aria-hidden="true"></div>
+      
+      <!-- Efecto de destello al hacer clic / tocar -->
+      <div class="flash-effect" id="flashEffect" aria-hidden="true"></div>
+
+      <!-- Indicador sutil para invitar a tocar -->
+      <div class="envelope-hint">
+        <span>Toca para abrir</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- REPRODUCTOR DE MÚSICA DE FONDO -->
+  <audio id="weddingAudio" loop preload="auto">
+    <source src="Assets/audio/musica_boda.mp3" type="audio/mpeg">
+    <source src="Assets/Harry%20Styles%20-%20Coming%20Up%20Roses-recortado.MP3" type="audio/mpeg">
+  </audio>
+
+  <!-- BOTÓN FLOTANTE DE MÚSICA (ESQUINA SUPERIOR DERECHA) -->
+  <button 
+    type="button" 
+    class="music-toggle-btn paused" 
+    id="btnMusicToggle" 
+    aria-label="Reproducir o pausar música de fondo" 
+    title="Música de fondo"
+  >
+    <img src="Assets/images/boton_musica.webp" alt="Música" class="music-icon" width="52" height="52">
+  </button>
+
+  <!-- Contenedor Principal (Mobile-First, Centrado en Pantallas Grandes) -->
+  <main class="page-container">
+    <div class="invitation-wrapper" id="invitationWrapper">
+      
+      <!-- Imagen original del diseño en alta fidelidad optimizada para web -->
+      <picture class="invitation-picture">
+        <source srcset="Assets/images/invitacion_boda.webp" type="image/webp">
+        <img 
+          src="Assets/images/v2Invitacion S&A - Boceto v4.png" 
+          alt="Invitación de Boda Sandra & Aarón" 
+          class="invitation-image"
+          fetchpriority="high"
+        >
+      </picture>
+
+      <!-- BOTONES INTERACTIVOS INVISIBLES (HOTSPOTS) -->
+      <!-- Coordenadas calculadas en porcentaje sobre la imagen original (2250 x 24000 px) -->
+
+      <!-- 1. Botón: VER UBICACIÓN -->
+      <a 
+        href="https://maps.app.goo.gl/Jwb8HHQa3jVNQ6NL8?g_st=iw" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="hotspot-btn hotspot-location" 
+        id="btnLocation"
+        aria-label="Ver ubicación de la recepción en el mapa"
+        title="Ver ubicación de la recepción"
+      ></a>
+
+      <!-- 2. CONTADOR REGRESIVO (Dentro de "NOS VEMOS EN") -->
+      <section class="countdown-overlay" id="countdownOverlay" aria-label="Cuenta regresiva hacia la boda">
+        <div class="countdown-col">
+          <span class="countdown-number" id="cdDays">00</span>
+          <span class="countdown-label">DÍAS</span>
+        </div>
+        <span class="countdown-separator" aria-hidden="true">:</span>
+        <div class="countdown-col">
+          <span class="countdown-number" id="cdHours">00</span>
+          <span class="countdown-label">HORAS</span>
+        </div>
+        <span class="countdown-separator" aria-hidden="true">:</span>
+        <div class="countdown-col">
+          <span class="countdown-number" id="cdMinutes">00</span>
+          <span class="countdown-label">MINUTOS</span>
+        </div>
+        <span class="countdown-separator" aria-hidden="true">:</span>
+        <div class="countdown-col">
+          <span class="countdown-number" id="cdSeconds">00</span>
+          <span class="countdown-label">SEGUNDOS</span>
+        </div>
+      </section>
+
+      <!-- 2. Botón: TUPI (Lista de Bodas) -->
+      <a 
+        href="https://www.tupi.com.py/regalos_en_lista/9841/Boda-de-Sandra-Barreto-y-Aaron-Samaniego--el-12-12-2026" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="hotspot-btn hotspot-tupi" 
+        id="btnTupi"
+        aria-label="Abrir lista de bodas en TUPI"
+        title="Abrir lista de bodas en TUPI"
+      ></a>
+
+      <!-- 3. Botón: COPIAR ALIAS (Transferencia Bancaria) -->
+      <button 
+        type="button" 
+        class="hotspot-btn hotspot-alias" 
+        id="btnCopyAlias"
+        aria-label="Copiar alias bancario al portapapeles"
+        title="Copiar alias bancario"
+      ></button>
+
+      <!-- 4. Botón: CONFIRMAR ASISTENCIA (WhatsApp RSVP) -->
+      <a 
+        href="https://wa.me/595972232552?text=%C2%A1Hola!%20Quisiera%20confirmar%20mi%20asistencia%20a%20la%20boda.%20%C2%A1Muchas%20gracias%20por%20la%20invitaci%C3%B3n!%20%E2%9C%A8" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="hotspot-btn hotspot-rsvp" 
+        id="btnRsvp"
+        aria-label="Confirmar asistencia por WhatsApp"
+        title="Confirmar asistencia por WhatsApp"
+      ></a>
+
+    </div>
+  </main>
+
+  <!-- Notificación Toast para feedback de "Alias Copiado" -->
+  <aside class="toast" id="toastNotification" role="alert" aria-live="polite">
+    ✓ Alias copiado: <strong>0972232552</strong>
+  </aside>
+
+  <!-- Lógica Interactiva -->
+  <script src="js/main.js"></script>
+</body>
+</html>
